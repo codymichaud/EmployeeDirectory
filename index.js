@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 
-const managerQues = [
+const managerQuest = [
     {
         type: 'input',
         name: 'name',
@@ -10,7 +10,7 @@ const managerQues = [
     },
     {
         type: 'input',
-        name: 'employID',
+        name: 'id',
         message: 'Please enter your employee id number.'
     },
     {
@@ -38,6 +38,16 @@ const engineerQuest = [
     },
     {
         type: 'input',
-
+        name: 'email',
+        message: 'Please enter the team members email.'
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Please enter the team members Github username.'
     }
+];
+
+const internQuest = [
+
 ]
