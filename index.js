@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const { generate } = require('rxjs');
 
 
 const managerQuest = [
@@ -70,3 +71,21 @@ const internQuest = [
         message: 'Where does the intern attend school?'
     }
 ];
+//Asking if user wants to add another team member
+const addTeam = [
+    {
+        type: 'confirm',
+        name: 'addTeam',
+        message: 'Would you like to add another Team Member to your directory?'
+    }
+];
+// if user wants to add another team member the user will then be greeted with this question
+const
+const init = () => {
+    try {
+        const html = writeToFile(response);
+        fs.writeFileSync(`index.html`)
+    }
+ }
+
+init();
