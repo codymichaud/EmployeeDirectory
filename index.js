@@ -49,5 +49,24 @@ const engineerQuest = [
 ];
 
 const internQuest = [
-
-]
+    {
+        type: 'input',
+        name: 'name',
+        message: 'What is the interns name?'
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: 'What is the ID number for this intern?'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is the interns email?'
+    },
+    {
+        type: 'input',
+        name: 'school',
+        message: 'Where does the intern attend school?'
+    }
+];
