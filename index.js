@@ -24,12 +24,13 @@ function managerQuest() {
             type: 'input',
             name: 'manageNum',
             message: 'What is your office number?'
-        }
+        },
     ]).then(response => {
         const managName = response.managName;
         const managId = response.managId;
         const managEmail = response.managEmail;
-        const manageNum = 
+        const manageNum = response.manageNum;
+        const manager = new Manager(managName, managEmail, manageNum);
     })
 };
 
@@ -37,22 +38,22 @@ function engineerQuest() {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'name',
+            name: 'engName',
             message: 'Enter the name of the first engineer.'
         },
         {
             type: 'input',
-            name: 'id',
+            name: 'engId',
             message: 'What is the id number of the employee?'
         },
         {
             type: 'input',
-            name: 'email',
+            name: 'engEmail',
             message: 'Please enter the team members email.'
         },
         {
             type: 'input',
-            name: 'github',
+            name: 'engGithub',
             message: 'Please enter the team members Github username.'
         }
     ])
@@ -62,22 +63,22 @@ function internQuest() {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'name',
+            name: 'intName',
             message: 'What is the interns name?'
         },
         {
             type: 'input',
-            name: 'id',
+            name: 'intId',
             message: 'What is the ID number for this intern?'
         },
         {
             type: 'input',
-            name: 'email',
+            name: 'intEmail',
             message: 'What is the interns email?'
         },
         {
             type: 'input',
-            name: 'education',
+            name: 'intEdu',
             message: 'Where does the intern attend school?'
         }
     ])
@@ -91,13 +92,7 @@ const addTeam = [
     }
 ];
 // if user wants to add another team member the user will then be greeted with this question
-let manager = [];
-let intern = [];
-let engineer = [];
 
-function employeeDirHtml(manager, intern, engineer) {
-    let managerHTML
-}
 
 
 const writeToFile = (response) =>
