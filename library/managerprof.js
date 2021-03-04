@@ -11,12 +11,12 @@ class Manager extends Employee {
     }
 
 
-    newManagerCard() {
+    newEmpCard() {
         return `<div class="card">
         <div class="card-header bg-info text-light">
         <h3>${this.managName}</h3>
         <h5>Manager</h5>
-        </div
+        </div>
         <div class="card-body" style="background-color:lightGray;">
         <ul class="list-group">
         <li class="list-group-item">Id: ${this.managId}</li>

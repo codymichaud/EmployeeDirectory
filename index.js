@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { generate } = require('rxjs');
-const Employee = require('./library/employHub');
 const Manager = require('./library/managerprof');
 const Engineer = require('./library/engineerprof');
+const Intern = require('./library/internprof');
+const Choices = require('inquirer/lib/objects/choices');
 let employDirect = [];
 
 function managerQuest() {
@@ -34,7 +34,7 @@ function managerQuest() {
         const managEmail = response.managEmail;
         const manageNum = response.manageNum;
         const manager = new Manager(managName, managId, managEmail, manageNum);
-        employDirect.push(manager)
+        employDirect.push(manager);
         console.log(manager);
         engineerQuest();
     })
@@ -69,7 +69,8 @@ function engineerQuest() {
         const engGithub = response.engGithub;
         const engineer = new Engineer(engName, engId, engEmail, engGithub);
         employDirect.push(engineer);
-        console.log(engineer)
+        console.log(engineer);
+        internQuest();
     })
 };
 
@@ -103,16 +104,92 @@ function internQuest() {
         const intern = new Intern(intName, intId, intEmail, intEdu);
         employDirect.push(intern);
         console.log(intern);
+        addTeam();
     })
+
+    function addTeam() {
+        inquirer.prompt([
+            {
+                type: 'list',
+                name: 'addEmpl',
+                message: 'Would you like to add another employee to your directory?',
+                choices: ['Yes', 'No']
+            }
+        ]).then(response => {
+            let addEmpl = response.addEmpl;
+
+            if (addEmpl === 'Yes') {
+                internQuest();
+            } else {
+                createHTML();
+                return;
+            };
+        });
+
+    }
+};
+
+function createHTML() {
+
+    let employeeCards = "";
+
+    employDirect.forEach(employee => {
+        const employeeCard = employee.newEmpCard();
+        employeeCards = employeeCard;
+    })
+    // employDirect.forEach(manager => {
+    //     let managerCard = manager.newManagerCard();
+    //     managerCards = managerCard;
+    // });
+    // employDirect.forEach(intern => {
+    //     let internCard = intern.newInternCard();
+    //     internCards = internCard;
+    // });
+    // employDirect.forEach(engineer => {
+    //     let engineerCard = engineer.newEngineerCard();
+    //     engineerCards = engineerCard;
+    // });
+
+    let pageHTML = `
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Employee Directory</title>
+</head>
+
+<body>
+    <div class="yourEmpCont container-fluid text-center" style="height: 80px; background-color:dimgray; color: cyan;">
+        <h1 class="yourEmplHead" style="padding-top: 5px;">Welcome to your Employee Directory</h1>
+    </div>
+    <div class="container" style="padding-top: 25px;">
+        <div class="card-columns justify-content-center">
+        ${employeeCards}
+        <br>
+        <br>
+       
+        <br>
+        <br>
+        
+        
+         </div>
+    </div>
+</body>
+
+</html>`;
+    fs.writeFile('./index.html', pageHTML, (error) => {
+        if (error) {
+            throw error;
+        }
+    });
 };
 //Asking if user wants to add another team member
-const addTeam = [
-    {
-        type: 'confirm',
-        name: 'addTeam',
-        message: 'Would you like to add another employee to your directory?'
-    }
-];
+
 // if user wants to add another team member the user will then be greeted with this question
 
 

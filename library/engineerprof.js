@@ -6,21 +6,25 @@ class Engineer extends Employee {
         this.engGithub = engGithub;
     }
 
+    getGithub() {
+        return this.engGithub;
+    }
+
     getRole() {
         return "Engineer";
     }
 
-    newEngineerCard() {
+    newEmpCard() {
         return `<div class="card">
         <div class="card-header bg-info text-light">
         <h3>${this.engName}</h3>
         <h5>Manager</h5>
-        </div
+        </div>
         <div class="card-body" style="background-color:lightGray;">
         <ul class="list-group">
         <li class="list-group-item">Id: ${this.engId}</li>
         <li class="list-group-item">Email: <a href="mailto:${this.engEmail}">${this.managEmail}</a></li>
-        <li class="list-group-item">Office #: ${this.engGithub}</li>
+        <li class="list-group-item">Github: ${this.engGithub}</li>
         </ul>
         </div>
         </div>`;
