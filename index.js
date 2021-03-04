@@ -1,8 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { generate } = require('rxjs');
+const Employee = require('./library/employHub');
 
-const employDirect = [];
+const employDirect = "";
 
 function managerQuest() {
     inquirer.prompt([
@@ -59,7 +60,15 @@ function engineerQuest() {
             name: 'engGithub',
             message: 'Please enter the team members Github username.'
         }
-    ])
+    ]).then(response => {
+        const engName = response.engName;
+        const engId = response.engId;
+        const engEmail = response.engEmail;
+        const engGithub = response.engGithub;
+        const engineer = new Engineer(engName, engId, engEmail, engGithub);
+        employDirect.push(engineer);
+        console.log(engineer)
+    })
 };
 
 function internQuest() {
@@ -84,7 +93,15 @@ function internQuest() {
             name: 'intEdu',
             message: 'Where does the intern attend school?'
         }
-    ])
+    ]).then(response => {
+        const intName = response.intName;
+        const intId = response.intId;
+        const intEmail = response.intEmail;
+        const intEdu = response.intEdu;
+        const intern = new Inter(intName, intId, intEmail, intEdu);
+        employDirect.push(intern);
+        console.log(intern);
+    })
 };
 //Asking if user wants to add another team member
 const addTeam = [
@@ -116,4 +133,4 @@ const addTeam = [
 
 // init();
 managerQuest();
-
+console.log(employDirect);
