@@ -2,8 +2,9 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const { generate } = require('rxjs');
 const Employee = require('./library/employHub');
-
-const employDirect = "";
+const Manager = require('./library/managerprof');
+const Engineer = require('./library/engineerprof');
+let employDirect = [];
 
 function managerQuest() {
     inquirer.prompt([
@@ -32,9 +33,10 @@ function managerQuest() {
         const managId = response.managId;
         const managEmail = response.managEmail;
         const manageNum = response.manageNum;
-        const manager = new Manager(managName, managEmail, manageNum);
+        const manager = new Manager(managName, managId, managEmail, manageNum);
         employDirect.push(manager)
         console.log(manager);
+        engineerQuest();
     })
 };
 
@@ -98,7 +100,7 @@ function internQuest() {
         const intId = response.intId;
         const intEmail = response.intEmail;
         const intEdu = response.intEdu;
-        const intern = new Inter(intName, intId, intEmail, intEdu);
+        const intern = new Intern(intName, intId, intEmail, intEdu);
         employDirect.push(intern);
         console.log(intern);
     })
