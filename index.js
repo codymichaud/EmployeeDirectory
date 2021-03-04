@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const { generate } = require('rxjs');
 
+const employDirect = [];
 
 function managerQuest() {
     inquirer.prompt([
@@ -31,6 +32,8 @@ function managerQuest() {
         const managEmail = response.managEmail;
         const manageNum = response.manageNum;
         const manager = new Manager(managName, managEmail, manageNum);
+        employDirect.push(manager)
+        console.log(manager);
     })
 };
 
@@ -95,20 +98,22 @@ const addTeam = [
 
 
 
-const writeToFile = (response) =>
-    `${response.name}
-${response.id}
-${response.email}`
+// const writeToFile = (response) =>
+//     `${response.name}
+// ${response.id}
+// ${response.email}`
 
 
-const init = () => {
-    try {
-        const html = writeToFile(response);
-        fs.writeFileSync(`index.html`, html);
-        console.log('YAY!!!!! You wrote to the employee directory file');
-    } catch (err) {
-        console.log(err);
-    }
-};
+// const init = () => {
+//     try {
+//         const html = writeToFile(response);
+//         fs.writeFileSync(`index.html`, html);
+//         console.log('YAY!!!!! You wrote to the employee directory file');
+//     } catch (err) {
+//         console.log(err);
+//     }
+// };
 
-init();
+// init();
+managerQuest();
+
