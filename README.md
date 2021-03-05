@@ -28,6 +28,6 @@ Email: cody.r.michaud@gmail.com
 
 ## Walkthrough
 
-Link to video -- https://drive.google.com/file/d/1hFREDqjLIVi6yjZYV3re0mlth6x0xR_B/view
+Link to video -- https://drive.google.com/file/d/1F6DW4SNEGW-CXMCRSjSzzLrE34lIMlKU/view
 
-![Employee Directory Walkthrough](imgs/EmployeeGenerator.gif)
+![Employee Directory Walkthrough](./imgs/EmployeeDirectory.gif)
