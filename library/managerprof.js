@@ -1,8 +1,8 @@
 const Employee = require('./employHub');
 
 class Manager extends Employee {
-    constructor(managName, managId, managEmail, manageNum) {
-        super(managName, managId, managEmail);
+    constructor(name, id, email, manageNum) {
+        super(name, id, email);
         this.manageNumb = manageNum;
     }
 
@@ -14,13 +14,13 @@ class Manager extends Employee {
     newEmpCard() {
         return `<div class="card">
         <div class="card-header bg-info text-light">
-        <h3>${this.managName}</h3>
+        <h3>${this.name}</h3>
         <h5>Manager</h5>
         </div>
         <div class="card-body" style="background-color:lightGray;">
         <ul class="list-group">
-        <li class="list-group-item">Id: ${this.managId}</li>
-        <li class="list-group-item">Email: <a href="mailto:${this.managEmail}">${this.managEmail}</a></li>
+        <li class="list-group-item">Id: ${this.id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${this.email}">${this.email}</a></li>
         <li class="list-group-item">Office #: ${this.manageNumb}</li>
         </ul>
         </div>

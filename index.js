@@ -131,11 +131,11 @@ function internQuest() {
 
 function createHTML() {
 
-    let employeeCards = "";
 
+    let employeeCards = "";
     employDirect.forEach(employee => {
         const employeeCard = employee.newEmpCard();
-        employeeCards = employeeCard;
+        employeeCards += employeeCard;
     })
     // employDirect.forEach(manager => {
     //     let managerCard = manager.newManagerCard();
@@ -188,6 +188,8 @@ function createHTML() {
         }
     });
 };
+
+
 //Asking if user wants to add another team member
 
 // if user wants to add another team member the user will then be greeted with this question
