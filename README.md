@@ -27,3 +27,7 @@ Github: [codymichaud](https://github.com/codymichaud)
 Email: cody.r.michaud@gmail.com
 
 ## Walkthrough
+
+Link to video -- https://drive.google.com/file/d/1hFREDqjLIVi6yjZYV3re0mlth6x0xR_B/view
+
+![Employee Directory Walkthrough](imgs/EmployeeGenerator.gif)
