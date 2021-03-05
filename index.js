@@ -61,6 +61,12 @@ function engineerQuest() {
             type: 'input',
             name: 'engGithub',
             message: 'Please enter the team members Github username.'
+        },
+        {
+            type: 'list',
+            name: 'nextNew',
+            message: 'Would you like to add an Intern?',
+            choices: ['Yes', 'No']
         }
     ]).then(response => {
         const engName = response.engName;
@@ -70,7 +76,13 @@ function engineerQuest() {
         const engineer = new Engineer(engName, engId, engEmail, engGithub);
         employDirect.push(engineer);
         console.log(engineer);
-        internQuest();
+        let nextNew = response.nextNew;
+        if (nextNew === 'Yes') {
+            internQuest();
+        } else if (nextNew === 'No') {
+            createHTML();
+        }
+        //internQuest();
     })
 };
 
@@ -113,16 +125,18 @@ function internQuest() {
                 type: 'list',
                 name: 'addEmpl',
                 message: 'Would you like to add another employee to your directory?',
-                choices: ['Yes', 'No']
+                choices: ['Engineer', 'Intern', 'No']
             }
         ]).then(response => {
             let addEmpl = response.addEmpl;
 
-            if (addEmpl === 'Yes') {
+            if (addEmpl === 'Engineer') {
+                engineerQuest();
+            } else if (addEmpl === 'Intern') {
                 internQuest();
+                return;
             } else {
                 createHTML();
-                return;
             };
         });
 
