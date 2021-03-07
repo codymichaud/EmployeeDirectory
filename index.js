@@ -151,7 +151,7 @@ function createHTML() {
         const employeeCard = employee.newEmpCard();
         employeeCards += employeeCard;
     })
-    
+
 
     let pageHTML = `
     <!DOCTYPE html>
@@ -169,7 +169,7 @@ function createHTML() {
 <body>
     <div class="yourEmpCont container-fluid text-center" style="height: 80px; background-color:dimgray; color: cyan;">
         <h1 class="yourEmplHead" style="padding-top: 5px;">Welcome to your Employee Directory</h1>
-<hr>
+<hr style="background-color: black;">
     </div>
     <div class="container" style="padding-top: 25px;">
         <div class="card-columns justify-content-center">
